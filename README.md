@@ -7,3 +7,15 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 , The App is deployed on [Vercel](https://vercel.com/)
 
 you can visit the website at [https://estate-observer.vercel.app/](https://estate-observer.vercel.app/)
+
+## Homepage Page
+
+<img src='./pic1.png' width='300px'/>
+
+## Search Page
+
+<img src='./pic2.png' width='300px'/>
+
+## Property Page
+
+<img src='./pic3.png' width='300px'/>
