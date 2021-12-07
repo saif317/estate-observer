@@ -35,10 +35,10 @@ const PropertyDetails = ({
     <Box w='full' p='6'>
       <Flex paddingTop='2' alignItems='center'>
         <Box paddingRight='3' color='green.400'>
-          {isVerified && <GoVerified />}
+          {isVerified && <GoVerified color={saffron[500]} />}
         </Box>
         <Text fontWeight='bold' fontSize='lg'>
-          AED {price} {rentFrequency && `/${rentFrequency}`}
+          AED {millify(price)} {rentFrequency && `/${rentFrequency}`}
         </Text>
         <Spacer />
         <Avatar size='sm' src={agency?.logo?.url}></Avatar>
