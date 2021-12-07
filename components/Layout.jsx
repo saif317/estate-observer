@@ -1,10 +1,10 @@
 import Head from 'next/head';
 import { Box } from '@chakra-ui/react';
 
-import Footer from './Footer';
-import Navbar from './Navbar';
+import Footer from './Footer.jsx';
+import Navbar from './Navbar.jsx';
 
-import theme from '../theme/theme';
+import theme from '../theme/theme.js';
 
 const { black } = theme.colors;
 

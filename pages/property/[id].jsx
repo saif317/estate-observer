@@ -5,10 +5,10 @@ import { BsGridFill } from 'react-icons/bs';
 import { GoVerified } from 'react-icons/go';
 import millify from 'millify';
 
-import { baseUrl, fetchApi } from '../../utils/fetchApi';
-import ImageScrollbar from '../../components/ImageScrollbar';
+import { baseUrl, fetchApi } from '../../utils/fetchApi.js';
+import ImageScrollbar from '../../components/ImageScrollbar.jsx';
 
-import theme from '../../theme/theme';
+import theme from '../../theme/theme.js';
 
 const { saffron } = theme.colors;
 

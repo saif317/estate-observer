@@ -1,6 +1,6 @@
 import { Box } from '@chakra-ui/layout';
 
-import theme from '../theme/theme';
+import theme from '../theme/theme.js';
 
 const { white, saffron } = theme.colors;
 

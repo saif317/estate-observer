@@ -17,7 +17,7 @@ import { BsSearch } from 'react-icons/bs';
 import { FiKey } from 'react-icons/fi';
 
 import Logo from '../assets/images/estateobserver.png';
-import theme from '../theme/theme';
+import theme from '../theme/theme.js';
 
 const { saffron } = theme.colors;
 

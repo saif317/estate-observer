@@ -3,10 +3,10 @@ import Link from 'next/link';
 import { Flex, Box, Text, Button } from '@chakra-ui/react';
 import { useMediaQuery } from '@chakra-ui/react';
 
-import Property from '../components/Property';
-import { baseUrl, fetchApi } from '../utils/fetchApi';
+import Property from '../components/Property.jsx';
+import { baseUrl, fetchApi } from '../utils/fetchApi.js';
 
-import theme from '../theme/theme';
+import theme from '../theme/theme.js';
 
 const { saffron } = theme.colors;
 

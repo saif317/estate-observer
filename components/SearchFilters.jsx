@@ -13,8 +13,8 @@ import { useRouter } from 'next/router';
 import { MdCancel } from 'react-icons/md';
 import Image from 'next/image';
 
-import { filterData, getFilterValues } from '../utils/filterData';
-import { baseUrl, fetchApi } from '../utils/fetchApi';
+import { filterData, getFilterValues } from '../utils/filterData.js';
+import { baseUrl, fetchApi } from '../utils/fetchApi.js';
 import noresult from '../assets/images/empty-result.png';
 
 export default function SearchFilters() {

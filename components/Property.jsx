@@ -10,7 +10,7 @@ import millify from 'millify';
 
 import DefaultImage from '../assets/images/defaulthouse.png';
 
-import theme from '../theme/theme';
+import theme from '../theme/theme.js';
 
 const { saffron } = theme.colors;
 
