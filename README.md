@@ -6,7 +6,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 , The Styling is made with [Chakra-ui](https://chakra-ui.com/) and [Emotion](https://emotion.sh/docs/introduction)
 , The App is deployed on [Vercel](https://vercel.com/)
 
-you can visit the website at [https://estate-observer.vercel.app/](https://estate-observer.vercel.app/)
+you can visit the website at [estate-observer.vercel.app](https://estate-observer.vercel.app/)
 
 ## Homepage Page
 
