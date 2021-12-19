@@ -1,14 +1,33 @@
 /* eslint-disable jsx-a11y/alt-text */
 import Link from 'next/link';
-import { Flex, Box, Text, Button } from '@chakra-ui/react';
-import { useMediaQuery } from '@chakra-ui/react';
-
+import { Flex, Box, Text, Button, useMediaQuery } from '@chakra-ui/react';
 import Property from '../components/Property.jsx';
 import { baseUrl, fetchApi } from '../utils/fetchApi.js';
+import { useState, useEffect } from 'react';
 
 import theme from '../theme/theme.js';
 
 const { saffron } = theme.colors;
+
+const useWindowSize = () => {
+  const [windowSize, setWindowSize] = useState(undefined);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const handleResize = () =>
+        setWindowSize(
+          window.innerWidth /
+            parseFloat(
+              getComputedStyle(document.querySelector('body'))['font-size']
+            )
+        );
+      window.addEventListener('resize', handleResize);
+      handleResize();
+      return () => window.removeEventListener('resize', handleResize);
+    }
+  }, [windowSize]);
+  return windowSize;
+};
 
 export const Banner = ({
   purpose,
@@ -19,53 +38,62 @@ export const Banner = ({
   buttonText,
   linkName,
   imageUrl,
-}) => (
-  <Flex flexWrap='wrap' justifyContent='center' alignItems='center' m='9'>
-    <Box
-      backgroundImage={imageUrl}
-      backgroundSize='cover'
-      backgroundRepeat='no-repeat'
-      width={600}
-      height={{ base: 200, md: 350 }}
-      boxShadow='2xl'
-      borderTopRadius={{ base: 'md', lg: 'none' }}
-      borderLeftRadius={{ base: 'none', lg: 'md' }}
-    ></Box>
-    <Box
-      p='9'
-      backgroundColor='white'
-      boxShadow='2xl'
-      borderBottomRadius={{ base: 'md', lg: 'none' }}
-      borderRightRadius={{ base: 'none', lg: 'md' }}
-      height={{ lg: 350 }}
-      width={{ md: 600 }}
-    >
-      <Text color={saffron[500]} fontSize='sm' fontWeight='medium'>
-        {purpose}
-      </Text>
-      <Text fontSize='3xl' fontWeight='bold' color={saffron[800]}>
-        {title1}
-        <br />
-        {title2}
-      </Text>
-      <Text fontSize='lg' paddingTop='3' paddingBottom='3' color={saffron[500]}>
-        {desc1}
-        <br />
-        {desc2}
-      </Text>
-      <Button
-        fontSize='xl'
-        bg={saffron[600]}
-        color='white'
-        _hover={{ backgroundColor: saffron[100], color: saffron[500] }}
+}) => {
+  const size = useWindowSize();
+
+  return (
+    <Flex flexWrap='wrap' justifyContent='center' alignItems='center' m='9'>
+      <Box
+        backgroundImage={imageUrl}
+        backgroundSize='cover'
+        backgroundRepeat='no-repeat'
+        width={600}
+        height={{ base: 200, md: 350 }}
+        boxShadow='2xl'
+        borderTopRadius={{ base: size <= 80 ? 'md' : null }}
+        borderLeftRadius={{ base: size <= 80 ? null : 'md' }}
+      ></Box>
+      <Box
+        p='9'
+        backgroundColor='white'
+        boxShadow='2xl'
+        borderBottomRadius={{ base: size <= 80 ? 'md' : null }}
+        borderRightRadius={{ base: size <= 80 ? null : 'md' }}
+        height={{ lg: 350 }}
+        width={{ md: 600 }}
       >
-        <Link href={linkName}>
-          <a>{buttonText}</a>
-        </Link>
-      </Button>
-    </Box>
-  </Flex>
-);
+        <Text color={saffron[500]} fontSize='sm' fontWeight='medium'>
+          {purpose}
+        </Text>
+        <Text fontSize='3xl' fontWeight='bold' color={saffron[800]}>
+          {title1}
+          <br />
+          {title2}
+        </Text>
+        <Text
+          fontSize='lg'
+          paddingTop='3'
+          paddingBottom='3'
+          color={saffron[500]}
+        >
+          {desc1}
+          <br />
+          {desc2}
+        </Text>
+        <Button
+          fontSize='xl'
+          bg={saffron[600]}
+          color='white'
+          _hover={{ backgroundColor: saffron[100], color: saffron[500] }}
+        >
+          <Link href={linkName}>
+            <a>{buttonText}</a>
+          </Link>
+        </Button>
+      </Box>
+    </Flex>
+  );
+};
 
 const Home = ({ propertiesForSale, propertiesForRent }) => {
   const [isLargerThan2560] = useMediaQuery('(min-width: 2560px)');
